@@ -3,7 +3,7 @@
   Example: favorites: "https://yourdomain.com/current-favorites"
 */
 const SITE_LINKS = {
-  instagram: "#",
+  instagram: "https://www.instagram.com/b.nickole__/",
   favorites: "#",
   home: "#",
   mama: "#",
