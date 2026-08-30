@@ -19,6 +19,7 @@
   <script src="links.js" defer></script>
   <script src="sidebar.js" defer></script>
   <script src="marquee.js" defer></script>
+  <script src="carousel.js" defer></script>
 
   <!-- Link preview tags -- these are what iMessage, SMS/RCS, Slack, and
        social apps read to build a preview card when this URL is shared.
@@ -74,14 +75,50 @@
     </section>
 
     <section class="carousel-section" aria-label="Photo carousel">
-      <div class="carousel-placeholder">
-        <div class="carousel-placeholder-inner">
-          <span class="carousel-icon" aria-hidden="true">✿</span>
-          <p class="carousel-eyebrow">Coming soon</p>
-          <h2>A photo carousel is on its way</h2>
-          <p>Check back soon for a rotating look at favorite spaces, styling moments, and behind-the-scenes finds.</p>
+      <div class="ig-carousel">
+        <div class="ig-carousel-stage" id="igStage" data-slides='[
+          {"src":"assets/images/carousel/garden-evening.jpg","alt":"Golden hour walk through a flower-lined garden path"},
+          {"src":"assets/images/carousel/city-afternoon-1.jpg","alt":"Downtown afternoon in a burgundy leather jacket"},
+          {"src":"assets/images/carousel/city-afternoon-2.jpg","alt":"Downtown afternoon, a second look"},
+          {"src":"assets/images/carousel/mirror-selfie.jpg","alt":"Getting ready in burgundy ruffles"},
+          {"src":"assets/images/carousel/car-mood.jpg","alt":"Sunny day, good mood"},
+          {"src":"assets/images/carousel/festival-day.jpg","alt":"Front row at a summer festival"},
+          {"src":"assets/images/carousel/graduation-day.jpg","alt":"Cap on, graduation day"}
+        ]'>
+          <div class="ig-face ig-face-front">
+        <article class="ig-post">
+          <header class="ig-post-head">
+            <img class="ig-avatar" src="assets/images/logo.png" alt="">
+            <span class="ig-handle">b.nickole__</span>
+            <span class="ig-dots-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          </header>
+          <div class="ig-post-image"><img class="ig-post-photo" src="" alt=""></div>
+          <div class="ig-post-actions" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+            <svg class="ig-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </article>
+          </div>
+          <div class="ig-face ig-face-right">
+        <article class="ig-post">
+          <header class="ig-post-head">
+            <img class="ig-avatar" src="assets/images/logo.png" alt="">
+            <span class="ig-handle">b.nickole__</span>
+            <span class="ig-dots-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          </header>
+          <div class="ig-post-image"><img class="ig-post-photo" src="" alt=""></div>
+          <div class="ig-post-actions" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+            <svg class="ig-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </article>
+          </div>
         </div>
-        <div class="carousel-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="ig-carousel-dots" id="igDots"></div>
       </div>
     </section>
 
