@@ -1,10 +1,10 @@
 /*
   Auto-scrolling category strip on the homepage.
   Duplicates the cards once so the strip can loop seamlessly, then
-  drives scrollLeft with requestAnimationFrame. Pauses on hover,
-  touch/drag, keyboard focus, when the tab is hidden, when the strip
-  scrolls out of view, and entirely for reduced-motion users (who can
-  still scroll it manually).
+  drives scrollLeft with requestAnimationFrame. Pauses briefly on
+  hover, touch/drag, keyboard focus, or when the tab is hidden, then
+  resumes on its own. Stays still (but still manually scrollable) for
+  anyone with reduced-motion enabled.
 */
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".scroll-strip");
@@ -23,47 +23,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (prefersReducedMotion) return;
 
-  const speed = 0.045; // pixels per millisecond
+  const speed = 0.06; // pixels per millisecond (~60px/sec)
   let loopWidth = track.scrollWidth / 2;
-  let lastTime = null;
-  let paused = false;
-  let resumeTimer = null;
+  const remeasure = () => { loopWidth = track.scrollWidth / 2; };
+  window.addEventListener("resize", remeasure);
+  window.addEventListener("load", remeasure);
 
-  const measure = () => { loopWidth = track.scrollWidth / 2; };
-  window.addEventListener("resize", measure);
+  let paused = false;
+  let lastTime = null;
+  let resumeTimer = null;
 
   const pause = () => {
     paused = true;
     window.clearTimeout(resumeTimer);
   };
-  const scheduleResume = () => {
+  const resume = (delay) => {
     window.clearTimeout(resumeTimer);
     resumeTimer = window.setTimeout(() => {
       lastTime = null;
       paused = false;
-    }, 2200);
+    }, delay || 0);
   };
 
   track.addEventListener("mouseenter", pause);
-  track.addEventListener("mouseleave", scheduleResume);
+  track.addEventListener("mouseleave", () => resume(500));
   track.addEventListener("focusin", pause);
-  track.addEventListener("focusout", scheduleResume);
+  track.addEventListener("focusout", () => resume(500));
   track.addEventListener("pointerdown", pause);
-  track.addEventListener("pointerup", scheduleResume);
+  track.addEventListener("pointerup", () => resume(1200));
   track.addEventListener("touchstart", pause, { passive: true });
-  track.addEventListener("touchend", scheduleResume);
-  track.addEventListener("wheel", () => { pause(); scheduleResume(); }, { passive: true });
+  track.addEventListener("touchend", () => resume(1200));
+  track.addEventListener("wheel", () => { pause(); resume(1200); }, { passive: true });
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) pause(); else scheduleResume();
+    if (document.hidden) pause(); else resume(0);
   });
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) scheduleResume(); else pause();
-    });
-  }, { threshold: 0.1 });
-  io.observe(track);
 
   const step = (time) => {
     if (lastTime === null) lastTime = time;

@@ -381,6 +381,8 @@ body.sidebar-open { overflow: hidden; }
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto;
   padding: 4px 4px 18px;
   scroll-snap-type: none;
   cursor: grab;
