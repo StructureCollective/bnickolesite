@@ -599,7 +599,6 @@ body.sidebar-open { overflow: hidden; }
 /* ===== Garden illustration framing the hero ===== */
 .intro {
   position: relative;
-  padding-bottom: 150px;
 }
 .intro-copy {
   position: relative;
@@ -616,19 +615,50 @@ body.sidebar-open { overflow: hidden; }
 }
 .intro-garden-corner-left { left: -6px; }
 .intro-garden-corner-right { right: -6px; }
-.intro-garden-bed {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
+@media (max-width: 760px) {
+  .intro-garden-corner { width: 76px; }
+}
+
+/* ===== Swaying flower bed behind + below the Instagram carousel ===== */
+.ig-garden-wrap {
+  position: relative;
   width: 100%;
-  height: 150px;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding: 70px 0 130px;
+}
+.ig-garden {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
+}
+.ig-garden svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ig-carousel {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes ig-sway {
+  0%, 100% { transform: rotate(calc(var(--amt, 3deg) * -1)); }
+  50% { transform: rotate(var(--amt, 3deg)); }
+}
+.ig-garden .stem-group {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation-name: ig-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-garden .stem-group { animation: none; }
 }
 
 @media (max-width: 760px) {
-  .intro { padding-bottom: 110px; }
-  .intro-garden-corner { width: 76px; }
-  .intro-garden-bed { height: 105px; }
+  .ig-garden-wrap { padding: 44px 0 90px; }
 }
