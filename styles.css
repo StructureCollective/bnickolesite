@@ -606,18 +606,18 @@ body.sidebar-open { overflow: hidden; }
 }
 .intro-garden-corner {
   position: absolute;
-  top: -8px;
-  width: 120px;
+  top: -10px;
+  width: 68px;
   height: auto;
   z-index: 1;
-  opacity: .92;
+  opacity: .95;
   pointer-events: none;
 }
-.intro-garden-corner-left { left: -6px; }
-.intro-garden-corner-right { right: -6px; }
+.intro-garden-corner-left { left: 4px; }
+.intro-garden-corner-right { right: 4px; }
 
 @media (max-width: 760px) {
-  .intro-garden-corner { width: 76px; }
+  .intro-garden-corner { width: 46px; }
 }
 
 /* ===== Swaying flower bed behind + below the Instagram carousel ===== */
@@ -659,6 +659,36 @@ body.sidebar-open { overflow: hidden; }
   .ig-garden .stem-group { animation: none; }
 }
 
+.ig-real-flower {
+  position: absolute;
+  bottom: 16px;
+  z-index: 0;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  animation-name: ig-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.ig-real-flower-daisy {
+  left: 9%;
+  height: 400px;
+  animation-duration: 4.8s;
+  animation-delay: -1.4s;
+  --amt: 2.4deg;
+}
+.ig-real-flower-tulip {
+  right: 11%;
+  height: 320px;
+  animation-duration: 4.1s;
+  animation-delay: -2.6s;
+  --amt: 2.8deg;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ig-real-flower { animation: none; }
+}
+
 @media (max-width: 760px) {
   .ig-garden-wrap { padding: 44px 0 90px; }
+  .ig-real-flower-daisy { height: 210px; left: 3%; }
+  .ig-real-flower-tulip { height: 175px; right: 4%; }
 }
