@@ -382,7 +382,8 @@ body.sidebar-open { overflow: hidden; }
   gap: 16px;
   overflow-x: auto;
   padding: 4px 4px 18px;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: none;
+  cursor: grab;
   scrollbar-width: thin;
   scrollbar-color: var(--blush) transparent;
 }
