@@ -662,7 +662,7 @@ body.sidebar-open { overflow: hidden; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  filter: blur(12px);
+  filter: blur(6px);
   pointer-events: none;
 }
 .ig-real-flower {
