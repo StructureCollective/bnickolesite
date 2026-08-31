@@ -665,14 +665,6 @@ body.sidebar-open { overflow: hidden; }
   filter: blur(12px);
   pointer-events: none;
 }
-.ig-flowers-tint {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgba(233, 124, 112, 0.4);
-  pointer-events: none;
-}
-
 .ig-real-flower {
   position: absolute;
   bottom: 16px;
