@@ -662,7 +662,7 @@ body.sidebar-open { overflow: hidden; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  filter: blur(6px);
+  filter: blur(5px);
   pointer-events: none;
 }
 .ig-real-flower {
@@ -710,9 +710,9 @@ body.sidebar-open { overflow: hidden; }
   animation-delay: -2.2s;
   --amt: 2.0deg;
 }
-.ig-real-flower-heather {
+.ig-real-flower-lily-small {
   right: 4%;
-  height: 300px;
+  height: 260px;
   animation-duration: 3.9s;
   animation-delay: -1.1s;
   --amt: 3.0deg;
@@ -729,5 +729,5 @@ body.sidebar-open { overflow: hidden; }
   .ig-real-flower-daisy { height: 130px; left: 27%; }
   .ig-real-flower-ranunculus { height: 165px; right: 27%; }
   .ig-real-flower-thistle { height: 275px; right: 12%; }
-  .ig-real-flower-heather { height: 150px; right: 2%; }
+  .ig-real-flower-lily-small { height: 130px; right: 2%; }
 }
