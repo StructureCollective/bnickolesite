@@ -559,6 +559,15 @@ body.sidebar-open { overflow: hidden; }
   background: #fff;
 }
 .ig-handle { font-weight: 600; font-size: 14px; letter-spacing: -.01em; }
+.ig-handle-us {
+  display: inline-block;
+  width: .95em;
+  height: .09em;
+  margin-left: 1px;
+  background: currentColor;
+  transform: translateY(.32em);
+  vertical-align: baseline;
+}
 .ig-dots-icon {
   margin-left: auto;
   display: flex;
@@ -578,6 +587,7 @@ body.sidebar-open { overflow: hidden; }
 }
 .ig-post-actions svg { width: 21px; height: 21px; }
 .ig-post-actions .ig-bookmark { margin-left: auto; }
+.ig-heart { fill: #ed4956; stroke: #ed4956; }
 
 .ig-carousel-dots {
   display: flex;
@@ -646,6 +656,21 @@ body.sidebar-open { overflow: hidden; }
 @keyframes ig-sway {
   0%, 100% { transform: rotate(calc(var(--amt, 3deg) * -1)); }
   50% { transform: rotate(var(--amt, 3deg)); }
+}
+
+.ig-flowers-blur {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter: blur(12px);
+  pointer-events: none;
+}
+.ig-flowers-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(233, 124, 112, 0.4);
+  pointer-events: none;
 }
 
 .ig-real-flower {
